@@ -12,7 +12,7 @@ export AMPGO06
 function AMPGO06(args...)
   nlp = Model()
 
-  @variable(nlp, x, start=-10.0)
+  @variable(nlp, x, start= 0.0)
 
   @NLobjective(
     nlp,
