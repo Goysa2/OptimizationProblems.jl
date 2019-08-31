@@ -21,13 +21,13 @@ export ncb20
 function ncb20(n :: Int=100)
 
     # indices in Luksan go from 0 to n+1
-    n < 31 && warn("ncb20: number of variables must be ≥ 31")
+    n < 31 && Compat.@warn("ncb20: number of variables must be ≥ 31")
     n = max(31, n)
 
     h = 1.0/ (n - 1)
 
     x0 = ones(n)
-    x0[1:n-10] = 0.0
+    x0[1:n-10] .= 0.0
 
     nlp = Model()
     @variable(nlp, x[i=1:n], start=x0[i])

@@ -40,13 +40,13 @@ export woods
 "The extended Woods problem `n` "
 function woods(n :: Int=100)
 
-    (n % 4 == 0) || warn("woods: number of variables adjusted to be a multiple of 4")
+    (n % 4 == 0) || Compat.@warn("woods: number of variables adjusted to be a multiple of 4")
     n = 4 * max(1, div(n, 4))
 
     nlp = Model()
 
     x0 = -3 * ones(n)
-    x0[2*(collect(1:div(n,2)))] = -1.0
+    x0[2*(collect(1:div(n,2)))] .= -1.0
 
     @variable(nlp, x[i=1:n], start=-2)
 
